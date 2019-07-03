@@ -1,6 +1,7 @@
 import * as React from 'react';
 import { Form, Icon, Input, Button } from 'antd';
 import { withFormik, FormikErrors, FormikProps } from 'formik';
+import yup from 'yup';
 
 interface FormValues {
   email: string,
@@ -15,7 +16,7 @@ interface Props {
 class RegisterComponent extends React.PureComponent<FormikProps<FormValues> & Props> {
 
   render() {
-    const { values, handleChange, handleBlur, handleSubmit } = this.props;
+    const { values, handleChange, handleBlur, handleSubmit, touched, errors } = this.props;
 
     return (
       <form className="login-form" onSubmit={handleSubmit}>
@@ -56,14 +57,32 @@ class RegisterComponent extends React.PureComponent<FormikProps<FormValues> & Pr
         </Form.Item>
         <Form.Item>
           Or <a href="">login now!</a>
-
         </Form.Item>
       </form>
     );
   }
 }
 
+const emailNotLongEnough = 'email must be at least 3 characters long';
+const passwordNotLongEnough = 'password must be at least 3 characters';
+const invalidEmail = 'email must be a valid email';
+
+const registerPasswordValidation = yup
+  .string()
+  .min(3, passwordNotLongEnough)
+  .max(255);
+
+const validationSchema = yup.object().shape({
+  email: yup
+    .string()
+    .min(3, emailNotLongEnough)
+    .max(255)
+    .email(invalidEmail),
+  password: registerPasswordValidation
+});
+
 export const RegisterView = withFormik<Props, FormValues>({
+  validationSchema: validationSchema,
   mapPropsToValues: () => ({ email: '', password: '' }),
   handleSubmit: async (values, { props, setErrors }) => {
     const errors = await props.submit(values);
