@@ -1,7 +1,7 @@
+import * as yup from 'yup';
 import * as React from 'react';
 import { Form, Icon, Input, Button } from 'antd';
 import { withFormik, FormikErrors, FormikProps } from 'formik';
-import yup from 'yup';
 
 interface FormValues {
   email: string,
@@ -17,20 +17,25 @@ class RegisterComponent extends React.PureComponent<FormikProps<FormValues> & Pr
 
   render() {
     const { values, handleChange, handleBlur, handleSubmit, touched, errors } = this.props;
-
     return (
       <form className="login-form" onSubmit={handleSubmit}>
-        <Form.Item>
+        <Form.Item
+          validateStatus={touched.email && errors.email ? "error" : ''}
+          help={touched.email && errors.email ? errors.email : ''}
+        >
           <Input
             name="email"
             prefix={<Icon type="user" style={{ color: 'rgba(0,0,0,.25)' }} />}
-            placeholder="Username"
+            placeholder="email"
             onChange={handleChange}
             value={values.email}
             onBlur={handleBlur}
           />
         </Form.Item>
-        <Form.Item>
+        <Form.Item
+          validateStatus={touched.password && errors.password ? "error" : ''}
+          help={touched.password && errors.password ? errors.password : ''}
+        >
           <Input
             name="password"
             prefix={<Icon type="lock" style={{ color: 'rgba(0,0,0,.25)' }} />}
@@ -64,21 +69,21 @@ class RegisterComponent extends React.PureComponent<FormikProps<FormValues> & Pr
 }
 
 const emailNotLongEnough = 'email must be at least 3 characters long';
-const passwordNotLongEnough = 'password must be at least 3 characters';
+const passwordNotLongEnough = 'password must be at least 6 characters';
 const invalidEmail = 'email must be a valid email';
-
-const registerPasswordValidation = yup
-  .string()
-  .min(3, passwordNotLongEnough)
-  .max(255);
 
 const validationSchema = yup.object().shape({
   email: yup
     .string()
     .min(3, emailNotLongEnough)
     .max(255)
-    .email(invalidEmail),
-  password: registerPasswordValidation
+    .email(invalidEmail)
+    .required(),
+  password: yup
+    .string()
+    .min(6, passwordNotLongEnough)
+    .max(255)
+    .required()
 });
 
 export const RegisterView = withFormik<Props, FormValues>({
