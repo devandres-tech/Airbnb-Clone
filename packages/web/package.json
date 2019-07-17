@@ -1,5 +1,5 @@
 {
-  "name": "web",
+  "name": "@abb/web",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
@@ -22,7 +22,8 @@
     "react-scripts": "3.0.1",
     "tslint": "^5.18.0",
     "typescript": "^3.5.2",
-    "yup": "^0.27.0"
+    "yup": "^0.27.0",
+    "@abb/common": "1.0.0"
   },
   "scripts": {
     "start": "react-scripts start",
