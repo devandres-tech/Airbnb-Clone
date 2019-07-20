@@ -3,7 +3,7 @@ import { FieldProps } from 'formik';
 import { Form, Input, } from 'antd';
 
 
-export const InputField: React.SFC<FieldProps<any> & {}> = ({
+export const InputField: React.SFC<FieldProps<any> & { prefix: JSX.Element }> = ({
   field, // { name, value, onChange, onBlur }
   form: { touched, errors }, // also values, setXXXX, handleXXXX, dirty, isValid, status, etc.
   ...props

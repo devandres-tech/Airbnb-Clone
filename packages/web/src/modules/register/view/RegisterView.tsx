@@ -1,8 +1,9 @@
 import * as yup from 'yup';
 import * as React from 'react';
 import { Form, Icon, Input, Button } from 'antd';
-import { withFormik, FormikErrors, FormikProps } from 'formik';
+import { withFormik, FormikErrors, FormikProps, Field } from 'formik';
 import { validUserSchema } from '@abb/common';
+import { InputField } from '../../shared/InputField';
 
 interface FormValues {
   email: string,
@@ -20,33 +21,19 @@ class RegisterComponent extends React.PureComponent<FormikProps<FormValues> & Pr
     const { values, handleChange, handleBlur, handleSubmit, touched, errors } = this.props;
     return (
       <form className="login-form" onSubmit={handleSubmit}>
-        <Form.Item
-          validateStatus={touched.email && errors.email ? "error" : ''}
-          help={touched.email && errors.email ? errors.email : ''}
-        >
-          <Input
-            name="email"
-            prefix={<Icon type="user" style={{ color: 'rgba(0,0,0,.25)' }} />}
-            placeholder="email"
-            onChange={handleChange}
-            value={values.email}
-            onBlur={handleBlur}
-          />
-        </Form.Item>
-        <Form.Item
-          validateStatus={touched.password && errors.password ? "error" : ''}
-          help={touched.password && errors.password ? errors.password : ''}
-        >
-          <Input
-            name="password"
-            prefix={<Icon type="lock" style={{ color: 'rgba(0,0,0,.25)' }} />}
-            type="password"
-            placeholder="Password"
-            onChange={handleChange}
-            value={values.password}
-            onBlur={handleBlur}
-          />
-        </Form.Item>
+        <Field
+          name="email"
+          prefix={<Icon type="user" style={{ color: 'rgba(0,0,0,.25)' }} />}
+          placeholder="email"
+          component={InputField}
+        />
+        <Field
+          name="password"
+          type="password"
+          prefix={<Icon type="lock" style={{ color: 'rgba(0,0,0,.25)' }} />}
+          placeholder="password"
+          component={InputField}
+        />
         <Form.Item>
           <a className="login-form-forgot" href="">
             Forgot password
