@@ -1,7 +1,7 @@
 import * as yup from 'yup';
 import * as React from 'react';
 import { Form, Icon, Input, Button } from 'antd';
-import { withFormik, FormikErrors, FormikProps, Field } from 'formik';
+import { withFormik, FormikErrors, FormikProps, Field, Form as FForm } from 'formik';
 import { validUserSchema } from '@abb/common';
 import { InputField } from '../../shared/InputField';
 
@@ -14,13 +14,12 @@ interface Props {
   submit: (values: FormValues) => Promise<FormikErrors<FormValues> | null>;
 }
 
-
 class RegisterComponent extends React.PureComponent<FormikProps<FormValues> & Props> {
 
   render() {
     const { values, handleChange, handleBlur, handleSubmit, touched, errors } = this.props;
     return (
-      <form className="login-form" onSubmit={handleSubmit}>
+      <FForm className="login-form">
         <Field
           name="email"
           prefix={<Icon type="user" style={{ color: 'rgba(0,0,0,.25)' }} />}
@@ -51,7 +50,7 @@ class RegisterComponent extends React.PureComponent<FormikProps<FormValues> & Pr
         <Form.Item>
           Or <a href="">login now!</a>
         </Form.Item>
-      </form>
+      </FForm>
     );
   }
 }
