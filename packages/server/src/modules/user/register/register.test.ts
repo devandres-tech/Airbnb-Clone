@@ -1,12 +1,15 @@
 import { Connection } from "typeorm";
 import * as faker from "faker";
 
-import { User } from "../../../entity/User";
 import {
-  duplicateEmail,
   emailNotLongEnough,
   invalidEmail,
   passwordNotLongEnough
+
+} from "@abb/common";
+
+import { User } from "../../../entity/User";
+import {
 } from "./errorMessages";
 import { TestClient } from "../../../utils/TestClient";
 import { createTestConn } from "../../../testUtils/createTestConn";
