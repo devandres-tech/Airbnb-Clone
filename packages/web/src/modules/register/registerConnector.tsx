@@ -1,6 +1,6 @@
 import * as React from 'react'
 import { RegisterView } from "./view/RegisterView";
-
+import { RegisterController } from '@abb/controller';
 
 // controller -> connector -> view
 
