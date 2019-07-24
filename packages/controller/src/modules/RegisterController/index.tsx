@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 
-export default class RegisterController extends Component {
+export class RegisterController extends Component {
   render() {
     return (
       <div>
