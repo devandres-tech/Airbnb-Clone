@@ -6,17 +6,11 @@ import { RegisterController } from '@abb/controller';
 
 export class RegisterConnector extends React.PureComponent {
 
-  demoSubmit = async (values: any) => {
-    console.log('values: ', values);
-    return null;
-  }
-
   render() {
     return (
-      <RegisterView submit={this.demoSubmit} />
+      <RegisterController>
+        {({ submit }) => <RegisterView submit={submit} />}
+      </RegisterController>
     )
   }
 }
-
-
-

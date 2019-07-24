@@ -1,11 +1,18 @@
-import React, { Component } from 'react'
+import * as React from 'react';
 
-export class RegisterController extends Component {
+interface Props {
+  children: (
+    data: { submit: (values: any) => Promise<null> }
+  ) => JSX.Element | null
+}
+
+export class RegisterController extends React.PureComponent<Props> {
+  submit = async (values: any) => {
+    console.log('values', values);
+    return null;
+  }
+
   render() {
-    return (
-      <div>
-        Hello from controllers!!
-      </div>
-    )
+    return this.props.children({ submit: this.submit });
   }
 }
