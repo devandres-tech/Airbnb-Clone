@@ -22,6 +22,5 @@ export const InputField: React.SFC<FieldProps<any> & { prefix: JSX.Element }> = 
         {...props}
       />
     </Form.Item>
-
   )
 } 
