@@ -8,7 +8,7 @@ export const client = new ApolloClient({
     new HttpLink({
       // server url to make requests
       uri: "http://localhost:4000",
-      credentials: 'include'
+      credentials: 'same-origin'
     }),
   cache: new InMemoryCache()
 });
