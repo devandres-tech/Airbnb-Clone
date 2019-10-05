@@ -61,14 +61,6 @@ export const startServer = async () => {
     } as any)
   );
 
-  // const cors = {
-  //   credentials: true,
-  //   origin:
-  //     process.env.NODE_ENV === "test"
-  //       ? "*"
-  //       : (process.env.FRONTEND_HOST as string),
-  // };
-
   server.express.use(cors({
     origin: 'http://localhost:3000',
     credentials: true,
@@ -82,7 +74,6 @@ export const startServer = async () => {
     await createTypeormConn();
   }
   const app = await server.start({
-    // cors,
     port: process.env.NODE_ENV === "test" ? 0 : 4000
   });
   console.log("Server is running on localhost:4000");
