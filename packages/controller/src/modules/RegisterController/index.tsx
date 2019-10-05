@@ -1,15 +1,16 @@
 import * as React from 'react';
 import { graphql, ChildMutateProps } from 'react-apollo';
-import gql from 'graphql-tag'
+import gql from 'graphql-tag';
+import { RegisterMutation, RegisterMutationVariables } from './__generated__/RegisterMutation';
 
 interface Props {
   children: (
-    data: { submit: (values: any) => Promise<null> }
+    data: { submit: (values: RegisterMutationVariables) => Promise<null> }
   ) => JSX.Element | null
 }
 
-class C extends React.PureComponent<ChildMutateProps<Props, any, any>> {
-  submit = async (values: any) => {
+class C extends React.PureComponent<ChildMutateProps<Props, RegisterMutation, RegisterMutationVariables>> {
+  submit = async (values: RegisterMutationVariables) => {
     console.log('values', values);
     const response = await this.props.mutate({
       variables: values
