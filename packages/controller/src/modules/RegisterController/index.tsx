@@ -33,4 +33,4 @@ const registerMutation = gql`
   }
 `;
 
-export const RegisterController = graphql(registerMutation)(C);
+export const RegisterController = graphql<Props, RegisterMutation, RegisterMutationVariables>(registerMutation)(C);
