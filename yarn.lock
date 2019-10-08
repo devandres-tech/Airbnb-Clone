@@ -1519,7 +1519,7 @@
   resolved "https://registry.yarnpkg.com/@types/graphql-deduplicator/-/graphql-deduplicator-2.0.0.tgz#9e577b8f3feb3d067b0ca756f4a1fb356d533922"
   integrity sha512-swUwj5hWF1yFzbUXStLJrUa0ksAt11B8+SwhsAjQAX0LYJ1LLioAyuDcJ9bovWbsNzIXJYXLvljSPQw8nR728w==
 
-"@types/graphql@^14.0.0":
+"@types/graphql@^14.0.0", "@types/graphql@^14.5.0":
   version "14.5.0"
   resolved "https://registry.yarnpkg.com/@types/graphql/-/graphql-14.5.0.tgz#a545fb3bc8013a3547cf2f07f5e13a33642b75d6"
   integrity sha512-MOkzsEp1Jk5bXuAsHsUi6BVv0zCO+7/2PTiZMXWDSsMXvNU6w/PLMQT2vHn8hy2i0JqojPz1Sz6rsFjHtsU0lA==
@@ -3870,6 +3870,18 @@ copy-to-clipboard@^3.2.0:
   dependencies:
     toggle-selection "^1.0.6"
 
+copyfiles@^2.1.1:
+  version "2.1.1"
+  resolved "https://registry.yarnpkg.com/copyfiles/-/copyfiles-2.1.1.tgz#d430e122d7880f92c45d372208b0af03b0c39db6"
+  integrity sha512-y6DZHve80whydXzBal7r70TBgKMPKesVRR1Sn/raUu7Jh/i7iSLSyGvYaq0eMJ/3Y/CKghwzjY32q1WzEnpp3Q==
+  dependencies:
+    glob "^7.0.5"
+    minimatch "^3.0.3"
+    mkdirp "^0.5.1"
+    noms "0.0.0"
+    through2 "^2.0.1"
+    yargs "^13.2.4"
+
 core-js-compat@^3.1.1:
   version "3.2.1"
   resolved "https://registry.yarnpkg.com/core-js-compat/-/core-js-compat-3.2.1.tgz#0cbdbc2e386e8e00d3b85dc81c848effec5b8150"
@@ -6186,26 +6198,12 @@ graphql-yoga@^1.9.2:
     graphql-upload "^8.0.0"
     subscriptions-transport-ws "^0.9.8"
 
-graphql@*, graphql@0.13.2, "graphql@>= 0.10 <15", "graphql@^0.11.0 || ^0.12.0 || ^0.13.0 || ^14.0.0", graphql@^0.13.1, graphql@^0.13.2:
+graphql@*, graphql@0.13.2, "graphql@>= 0.10 <15", "graphql@^0.11.0 || ^0.12.0 || ^0.13.0 || ^14.0.0", graphql@^0.12.3, graphql@^0.13.0, graphql@^0.13.1, graphql@^0.13.2, graphql@^14.5.8:
   version "0.13.2"
   resolved "https://registry.yarnpkg.com/graphql/-/graphql-0.13.2.tgz#4c740ae3c222823e7004096f832e7b93b2108270"
   integrity sha512-QZ5BL8ZO/B20VA8APauGBg3GyEgZ19eduvpLWoq5x7gMmWnHoy8rlQWPLmWgFvo1yNgjSEFMesmS4R6pPr7xog==
   dependencies:
     iterall "^1.2.1"
-
-graphql@^0.12.3:
-  version "0.12.3"
-  resolved "https://registry.yarnpkg.com/graphql/-/graphql-0.12.3.tgz#11668458bbe28261c0dcb6e265f515ba79f6ce07"
-  integrity sha512-Hn9rdu4zacplKXNrLCvR8YFiTGnbM4Zw/UH8FDmzBDsH7ou40lSNH4tIlsxcYnz2TGNVJCpu1WxCM23yd6kzhA==
-  dependencies:
-    iterall "1.1.3"
-
-graphql@^14.5.8:
-  version "14.5.8"
-  resolved "https://registry.yarnpkg.com/graphql/-/graphql-14.5.8.tgz#504f3d3114cb9a0a3f359bbbcf38d9e5bf6a6b3c"
-  integrity sha512-MMwmi0zlVLQKLdGiMfWkgQD7dY/TUKt4L+zgJ/aR0Howebod3aNgP5JkgvAULiR2HPVZaP2VEElqtdidHweLkg==
-  dependencies:
-    iterall "^1.2.2"
 
 growly@^1.3.0:
   version "1.3.0"
@@ -7414,12 +7412,7 @@ istanbul-reports@^2.2.6:
   dependencies:
     handlebars "^4.1.2"
 
-iterall@1.1.3:
-  version "1.1.3"
-  resolved "https://registry.yarnpkg.com/iterall/-/iterall-1.1.3.tgz#1cbbff96204056dde6656e2ed2e2226d0e6d72c9"
-  integrity sha512-Cu/kb+4HiNSejAPhSaN1VukdNTTi/r4/e+yykqjlG/IW+1gZH5b4+Bq3whDX4tvbYugta3r8KTMUiqT3fIGxuQ==
-
-iterall@^1.1.3, iterall@^1.2.1, iterall@^1.2.2:
+iterall@^1.1.3, iterall@^1.2.1:
   version "1.2.2"
   resolved "https://registry.yarnpkg.com/iterall/-/iterall-1.2.2.tgz#92d70deb8028e0c39ff3164fdbf4d8b088130cd7"
   integrity sha512-yynBb1g+RFUPY64fTrFv7nsjRrENBQJaX2UL+2Szc9REFrSNm1rpSXHGzhmAy7a9uv3vlvgBlXnf9RqmPH1/DA==
@@ -9342,6 +9335,14 @@ nodemon@^1.17.3:
     touch "^3.1.0"
     undefsafe "^2.0.2"
     update-notifier "^2.5.0"
+
+noms@0.0.0:
+  version "0.0.0"
+  resolved "https://registry.yarnpkg.com/noms/-/noms-0.0.0.tgz#da8ebd9f3af9d6760919b27d9cdc8092a7332859"
+  integrity sha1-2o69nzr51nYJGbJ9nNyAkqczKFk=
+  dependencies:
+    inherits "^2.0.1"
+    readable-stream "~1.0.31"
 
 "nopt@2 || 3":
   version "3.0.6"
@@ -11822,6 +11823,16 @@ readable-stream@^3.0.6, readable-stream@^3.1.1:
     string_decoder "^1.1.1"
     util-deprecate "^1.0.1"
 
+readable-stream@~1.0.31:
+  version "1.0.34"
+  resolved "https://registry.yarnpkg.com/readable-stream/-/readable-stream-1.0.34.tgz#125820e34bc842d2f2aaafafe4c2916ee32c157c"
+  integrity sha1-Elgg40vIQtLyqq+v5MKRbuMsFXw=
+  dependencies:
+    core-util-is "~1.0.0"
+    inherits "~2.0.1"
+    isarray "0.0.1"
+    string_decoder "~0.10.x"
+
 readdirp@^2.0.0, readdirp@^2.2.1:
   version "2.2.1"
   resolved "https://registry.yarnpkg.com/readdirp/-/readdirp-2.2.1.tgz#0e87622a3325aa33e892285caf8b4e846529a525"
@@ -12167,6 +12178,13 @@ rimraf@2, rimraf@^2.2.8, rimraf@^2.5.4, rimraf@^2.6.1, rimraf@^2.6.2, rimraf@^2.
   integrity sha512-uWjbaKIK3T1OSVptzX7Nl6PvQ3qAGtKEtVRjRuazjfL3Bx5eI409VZSqgND+4UNnmzLVdPj9FqFJNPqBZFve4w==
   dependencies:
     glob "^7.1.3"
+
+rimraf@2.6.2:
+  version "2.6.2"
+  resolved "https://registry.yarnpkg.com/rimraf/-/rimraf-2.6.2.tgz#2ed8150d24a16ea8651e6d6ef0f47c4158ce7a36"
+  integrity sha512-lreewLK/BlghmxtfH36YYVg1i8IAce4TI7oao75I1g245+6BctqTVQiBP3YUJ9C6DQOXJmkYR9X9fCLtCOJc5w==
+  dependencies:
+    glob "^7.0.5"
 
 rimraf@2.6.3:
   version "2.6.3"
@@ -13252,7 +13270,7 @@ throat@^4.0.0:
   resolved "https://registry.yarnpkg.com/throat/-/throat-4.1.0.tgz#89037cbc92c56ab18926e6ba4cbb200e15672a6a"
   integrity sha1-iQN8vJLFarGJJua6TLsgDhVnKmo=
 
-through2@^2.0.0:
+through2@^2.0.0, through2@^2.0.1:
   version "2.0.5"
   resolved "https://registry.yarnpkg.com/through2/-/through2-2.0.5.tgz#01c1e39eb31d07cb7d03a96a70823260b23132cd"
   integrity sha512-/mrRod8xqpA+IHSLyGCQ2s8SPHiCDEeQJSep1jqLYeEUClOFG2Qsh+4FU6G9VeqpZnGW/Su8LQGc4YKni5rYSQ==
@@ -13581,12 +13599,7 @@ typeorm@0.2.0:
     yargonaut "^1.1.2"
     yargs "^11.1.0"
 
-typescript@^2.9.1:
-  version "2.9.2"
-  resolved "https://registry.yarnpkg.com/typescript/-/typescript-2.9.2.tgz#1cbf61d05d6b96269244eb6a3bce4bd914e0f00c"
-  integrity sha512-Gr4p6nFNaoufRIY4NMdpQRNmgxVIGMs4Fcu/ujdYk3nAZqk7supzBE9idmvfZIlH/Cuj//dvi+019qEue9lV0w==
-
-typescript@^3.5.2, typescript@^3.5.3:
+typescript@3.6.3, typescript@^3.5.2, typescript@^3.5.3:
   version "3.6.3"
   resolved "https://registry.yarnpkg.com/typescript/-/typescript-3.6.3.tgz#fea942fabb20f7e1ca7164ff626f1a9f3f70b4da"
   integrity sha512-N7bceJL1CtRQ2RiG0AQME13ksR7DiuQh/QehubYcghzv20tnh+MQnQIuJddTmsbqYj+dztchykemz0zFzlvdQw==
@@ -14515,7 +14528,7 @@ yargs@^11.0.0, yargs@^11.1.0:
     y18n "^3.2.1"
     yargs-parser "^9.0.2"
 
-yargs@^13.3.0:
+yargs@^13.2.4, yargs@^13.3.0:
   version "13.3.0"
   resolved "https://registry.yarnpkg.com/yargs/-/yargs-13.3.0.tgz#4c657a55e07e5f2cf947f8a366567c04a0dedc83"
   integrity sha512-2eehun/8ALW8TLoIl7MVaRUrg+yCnenu8B4kBlRxj3GJGDKU1Og7sMXPNm1BYyM1DOJmTZ4YeN/Nwxv+8XJsUA==
