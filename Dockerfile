@@ -15,3 +15,11 @@ COPY ./packages/server/dist/ ./packages/server/
 COPY ./packages/common/dist/ ./packages/server/
 COPY ./packages/server/.env.prod ./packages/server/
 COPY ./ormconfig.json .
+
+WORKDIR ./packages/server
+
+ENV NODE_ENV production
+
+EXPOSE 80
+
+CMD ["node", "dist/index.js"]
