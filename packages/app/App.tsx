@@ -1,12 +1,11 @@
 import * as React from "react";
 import { StyleSheet, Text, View } from "react-native";
-import { add } from "@cashew/common";
 
 export default class App extends React.Component {
   render() {
     return (
       <View style={styles.container}>
-        <Text>{add(1, 2)}</Text>
+        <Text>Hello</Text>
       </View>
     );
   }
