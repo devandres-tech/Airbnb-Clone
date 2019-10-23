@@ -11,17 +11,26 @@
     "postinstall": "expo-yarn-workspaces postinstall"
   },
   "dependencies": {
+    "apollo-cache-inmemory": "^1.2.5",
+    "apollo-client": "^2.3.5",
+    "apollo-link-http": "^1.5.4",
     "expo": "^35.0.0",
-    "install": "^0.13.0",
-    "react": "^16.10.2",
+    "graphql": "^0.13.2",
+    "graphql-tag": "^2.9.2",
+    "react": "16.3.1",
+    "react-apollo": "^2.1.7",
     "react-dom": "16.8.3",
     "react-native": "https://github.com/expo/react-native/archive/sdk-33.0.0.tar.gz",
+    "react-native-elements": "^1.2.6",
     "react-native-vector-icons": "^6.6.0",
-    "react-native-web": "^0.11.7"
+    "react-native-web": "^0.11.7",
+    "react-router-native": "4.3.0"
   },
   "devDependencies": {
     "@types/react": "^16.8.23",
     "@types/react-native": "^0.57.65",
+    "@types/react-native-elements": "^0.18.0",
+    "@types/react-router-native": "^5.1.0",
     "babel-preset-expo": "^7.0.0",
     "crna-make-symlinks-for-yarn-workspaces": "^1.0.1",
     "expo-yarn-workspaces": "^1.2.1",
