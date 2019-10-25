@@ -9,8 +9,6 @@ try {
 }
 const reactNativeLib = path.resolve(__dirname, '../../');
 
-console.log("react native lib ", reactNativeLib);
-
 module.exports = {
   watchFolders: [path.resolve(__dirname, 'node_modules'), reactNativeLib],
   nodeModules: path.join(__dirname, "../.."),
@@ -28,5 +26,3 @@ module.exports = {
     }),
   },
 };
-
-console.log("modules ", module.exports.watchFolders)
