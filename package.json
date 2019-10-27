@@ -26,5 +26,8 @@
   "devDependencies": {
     "lerna": "^3.17.0"
   },
-  "name": "Aribnb-Clone"
+  "name": "Aribnb-Clone",
+  "resolutions": {
+    "graphql": "14.4.2"
+  }
 }
