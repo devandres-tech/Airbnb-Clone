@@ -1,9 +1,10 @@
 import * as React from 'react';
 import { Form, Icon, Button } from 'antd';
 import { withFormik, FormikErrors, FormikProps, Field, Form as FForm } from 'formik';
-import { validUserSchema } from '@abb/common';
-import { InputField } from '../../shared/InputField';
 import { Link } from 'react-router-dom';
+import { loginSchema } from '@abb/common';
+
+import { InputField } from '../../shared/InputField';
 
 interface FormValues {
   email: string,
@@ -43,19 +44,19 @@ class RegisterComponent extends React.PureComponent<FormikProps<FormValues> & Pr
             htmlType="submit"
             className="login-form-button"
           >
-            Register
+            Login
           </Button>
         </Form.Item>
         <Form.Item>
-          Or <Link to="/login">login now!</Link>
+          Or <Link to="/register">register</Link>
         </Form.Item>
       </FForm>
     );
   }
 }
 
-export const RegisterView = withFormik<Props, FormValues>({
-  validationSchema: validUserSchema,
+export const LoginView = withFormik<Props, FormValues>({
+  validationSchema: loginSchema,
   mapPropsToValues: () => ({ email: '', password: '' }),
   handleSubmit: async (values, { props, setErrors }) => {
     const errors = await props.submit(values);
