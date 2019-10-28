@@ -1,8 +1,8 @@
 {
     "defaultSeverity": "error",
     "extends": [
-        "../../tslint.json",
-        "tslint-react"
+        "ts-link-react",
+        "../../tslint.json"
     ],
     "jsRules": {},
     "rules": {},

@@ -1,6 +1,5 @@
-import * as yup from 'yup';
 import * as React from 'react';
-import { Form, Icon, Input, Button } from 'antd';
+import { Form, Icon, Button } from 'antd';
 import { withFormik, FormikErrors, FormikProps, Field, Form as FForm } from 'formik';
 import { validUserSchema } from '@abb/common';
 import { InputField } from '../../shared/InputField';
@@ -17,7 +16,6 @@ interface Props {
 class RegisterComponent extends React.PureComponent<FormikProps<FormValues> & Props> {
 
   render() {
-    const { values, handleChange, handleBlur, handleSubmit, touched, errors } = this.props;
     return (
       <FForm className="login-form">
         <Field
