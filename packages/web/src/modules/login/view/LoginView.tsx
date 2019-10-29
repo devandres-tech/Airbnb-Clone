@@ -1,6 +1,6 @@
 import * as React from 'react';
 import { Form, Icon, Button } from 'antd';
-import { withFormik, FormikErrors, FormikProps, Field, Form as FForm } from 'formik';
+import { withFormik, FormikProps, Field, Form as FForm } from 'formik';
 import { Link } from 'react-router-dom';
 import { loginSchema } from '@abb/common';
 
@@ -12,7 +12,7 @@ interface FormValues {
 }
 
 interface Props {
-  submit: (values: FormValues) => Promise<FormikErrors<FormValues> | null>;
+  submit: (values: FormValues) => Promise<{ [key: string]: string; } | null>;
 }
 
 class RegisterComponent extends React.PureComponent<FormikProps<FormValues> & Props> {
@@ -57,6 +57,8 @@ class RegisterComponent extends React.PureComponent<FormikProps<FormValues> & Pr
 
 export const LoginView = withFormik<Props, FormValues>({
   validationSchema: loginSchema,
+  validateOnChange: false,
+  validateOnBlur: false,
   mapPropsToValues: () => ({ email: '', password: '' }),
   handleSubmit: async (values, { props, setErrors }) => {
     const errors = await props.submit(values);

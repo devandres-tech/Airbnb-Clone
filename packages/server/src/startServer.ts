@@ -62,7 +62,8 @@ export const startServer = async () => {
   );
 
   server.express.use(cors({
-    origin: "https://5da4fff9d826733443105e4f--airbnbclone.netlify.com",
+    // origin: "https://5da4fff9d826733443105e4f--airbnbclone.netlify.com",
+    origin: "http://localhost:3000",
     credentials: true,
   }))
 

@@ -1,16 +1,14 @@
-import * as React from 'react'
+import * as React from 'react';
+import { LoginController } from '@abb/controller';
 
 import { LoginView } from './view/LoginView';
 
 export class LoginConnector extends React.PureComponent {
-  dummySubmit = async (values: any) => {
-    console.log('values: ', values)
-    return null;
-  }
-
   render() {
     return (
-      <LoginView submit={this.dummySubmit} />
+      <LoginController>
+        {({ submit }) => <LoginView submit={submit} />}
+      </LoginController>
     );
   }
 }
