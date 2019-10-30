@@ -5,7 +5,6 @@ import * as session from "express-session";
 import * as connectRedis from "connect-redis";
 import * as RateLimit from "express-rate-limit";
 import * as RateLimitRedisStore from "rate-limit-redis";
-import * as cors from 'cors';
 
 import { redis } from "./redis";
 import { createTypeormConn } from "./utils/createTypeormConn";
@@ -61,11 +60,10 @@ export const startServer = async () => {
     } as any)
   );
 
-  server.express.use(cors({
-    // origin: "https://5da4fff9d826733443105e4f--airbnbclone.netlify.com",
-    origin: "http://localhost:3000",
+  const cors = {
     credentials: true,
-  }))
+    origin: "http://localhost:3000"
+  };
 
   server.express.get("/confirm/:id", confirmEmail);
 
@@ -78,6 +76,7 @@ export const startServer = async () => {
   const port = process.env.PORT || 4000;
 
   const app = await server.start({
+    cors,
     port: process.env.NODE_ENV === "test" ? 0 : port
   });
 
