@@ -13,7 +13,6 @@
   },
   "dependencies": {
     "apollo": "1.1.1",
-    "apollo-codegen": "0.19.1",
     "graphql": "14.4.2",
     "graphql-tag": "^2.10.1",
     "react": "^16.11.0",

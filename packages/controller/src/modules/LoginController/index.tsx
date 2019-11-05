@@ -4,12 +4,13 @@ import gql from 'graphql-tag';
 
 import { normalizeErrors } from '../../utils/normalizeErrors';
 import { LoginMutation, LoginMutationVariables } from '../../schemaTypes';
+import { NormalizedErrorMap } from '../../types/NormalizedErrorMap';
 
 interface Props {
   // callback function used by the app to retrieve session ID
   onSessionId?: (sessionId: string | null) => void;
   children: (
-    data: { submit: (values: LoginMutationVariables) => Promise<{ [key: string]: string; } | null> }
+    data: { submit: (values: LoginMutationVariables) => Promise<NormalizedErrorMap | null> }
   ) => JSX.Element | null;
 }
 
