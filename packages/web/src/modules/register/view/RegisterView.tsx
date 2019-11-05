@@ -1,9 +1,10 @@
 import * as React from 'react';
 import { Form, Icon, Button } from 'antd';
-import { withFormik, FormikErrors, FormikProps, Field, Form as FForm } from 'formik';
+import { withFormik, FormikProps, Field, Form as FForm } from 'formik';
 import { validUserSchema } from '@abb/common';
 import { InputField } from '../../shared/InputField';
 import { Link } from 'react-router-dom';
+import { NormalizedErrorMap } from '@abb/controller';
 
 interface FormValues {
   email: string,
@@ -11,7 +12,7 @@ interface FormValues {
 }
 
 interface Props {
-  submit: (values: FormValues) => Promise<FormikErrors<FormValues> | null>;
+  submit: (values: FormValues) => Promise<NormalizedErrorMap | null>;
 }
 
 class RegisterComponent extends React.PureComponent<FormikProps<FormValues> & Props> {

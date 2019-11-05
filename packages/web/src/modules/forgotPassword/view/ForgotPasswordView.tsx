@@ -9,14 +9,13 @@ import { InputField } from '../../shared/InputField';
 
 interface FormValues {
   email: string,
-  password: string,
 }
 
 interface Props {
   submit: (values: FormValues) => Promise<NormalizedErrorMap | null>;
 }
 
-class RegisterComponent extends React.PureComponent<FormikProps<FormValues> & Props> {
+class ForgotPasswordComponent extends React.PureComponent<FormikProps<FormValues> & Props> {
 
   render() {
     return (
@@ -56,15 +55,12 @@ class RegisterComponent extends React.PureComponent<FormikProps<FormValues> & Pr
   }
 }
 
-export const LoginView = withFormik<Props, FormValues>({
-  validationSchema: loginSchema,
-  validateOnChange: false,
-  validateOnBlur: false,
-  mapPropsToValues: () => ({ email: '', password: '' }),
+export const ForgotPasswordView = withFormik<Props, FormValues>({
+  mapPropsToValues: () => ({ email: '' }),
   handleSubmit: async (values, { props, setErrors }) => {
     const errors = await props.submit(values);
     if (errors) {
       setErrors(errors);
     }
   }
-})(RegisterComponent);
+})(ForgotPasswordComponent);
