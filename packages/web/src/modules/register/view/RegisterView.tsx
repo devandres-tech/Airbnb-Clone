@@ -34,9 +34,9 @@ class RegisterComponent extends React.PureComponent<FormikProps<FormValues> & Pr
           component={InputField}
         />
         <Form.Item>
-          <a className="login-form-forgot" href="">
+          <Link to="/forgot-password">
             Forgot password
-          </a>
+          </Link>
         </Form.Item>
         <Form.Item>
           <Button
