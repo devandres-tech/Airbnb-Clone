@@ -1,27 +1,22 @@
 import * as React from 'react';
 import { graphql, ChildMutateProps } from 'react-apollo';
 import gql from 'graphql-tag';
-import { RegisterMutation, RegisterMutationVariables } from '../../schemaTypes';
-import { normalizeErrors } from '../../utils/normalizeErrors';
-import { NormalizedErrorMap } from '../../types/NormalizedErrorMap';
+import { SendForgotPasswordEmailMutation, SendForgotPasswordEmailMutationVariables } from '../../schemaTypes';
 
 interface Props {
   children: (
-    data: { submit: (values: RegisterMutationVariables) => Promise<NormalizedErrorMap | null> }
+    data: { submit: (values: SendForgotPasswordEmailMutation) => Promise<null> }
   ) => JSX.Element | null
 }
 
-class C extends React.PureComponent<ChildMutateProps<Props, RegisterMutation, RegisterMutationVariables>> {
-  submit = async (values: RegisterMutationVariables) => {
+class C extends React.PureComponent<ChildMutateProps<Props, SendForgotPasswordEmailMutation, SendForgotPasswordEmailMutationVariables>> {
+  submit = async (values: SendForgotPasswordEmailMutationVariables) => {
     console.log('values', values);
-    const { data: { register } } = await this.props.mutate({
+    const response = await this.props.mutate({
       variables: values
     })
-    console.log('response', register);
+    console.log('response', response);
 
-    if (register) {
-      return normalizeErrors(register);
-    }
     return null;
   }
 
@@ -36,4 +31,4 @@ const forgotPasswordMutation = gql`
   }
 `;
 
-export const RegisterController = graphql<Props, RegisterMutation, RegisterMutationVariables>(forgotPasswordMutation)(C);
+export const ForgotPasswordController = graphql<Props, SendForgotPasswordEmailMutation, SendForgotPasswordEmailMutationVariables>(forgotPasswordMutation)(C);
