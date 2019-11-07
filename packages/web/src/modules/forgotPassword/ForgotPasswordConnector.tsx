@@ -1,16 +1,14 @@
 import React, { Component } from 'react'
 import PropTypes from 'prop-types'
-import { ForgotPasswordView } from './view/ForgotPasswordView'
+import { ForgotPasswordView } from './view/ForgotPasswordView';
+import { ForgotPasswordController } from '@abb/controller';
 
 export default class ForgotPasswordConnector extends Component {
-  dummy = async (values: any) => {
-    console.log("values ", values);
-    return null;
-  }
-
   render() {
     return (
-      <ForgotPasswordView submit={this.dummy} />
+      <ForgotPasswordController>
+        {({ submit }) => <ForgotPasswordView submit={submit} />}
+      </ForgotPasswordController>
     )
   }
 }

@@ -5,7 +5,7 @@ import { SendForgotPasswordEmailMutation, SendForgotPasswordEmailMutationVariabl
 
 interface Props {
   children: (
-    data: { submit: (values: SendForgotPasswordEmailMutation) => Promise<null> }
+    data: { submit: (values: SendForgotPasswordEmailMutationVariables) => Promise<null> }
   ) => JSX.Element | null
 }
 
