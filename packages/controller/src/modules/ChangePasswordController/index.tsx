@@ -25,9 +25,12 @@ class C extends React.PureComponent<ChildMutateProps<Props, SendForgotPasswordEm
   }
 }
 
-const forgotPasswordMutation = gql`
-  mutation SendForgotPasswordEmailMutation($email: String!) {
-    sendForgotPasswordEmail(email: $email)
+const forgotPasswordChangeMutation = gql`
+  mutation ForgotPasswordChange($newPassword: String!, $key: String!) {
+    forgotPasswordChange(newPassword: $newPassword, key: $key) {
+      path
+      message
+    }
   }
 `;
 
