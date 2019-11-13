@@ -4,19 +4,19 @@
 // This file was automatically generated and should not be edited.
 
 // ====================================================
-// GraphQL mutation operation: ForgotPasswordChange
+// GraphQL mutation operation: ForgotPasswordChangeMutation
 // ====================================================
 
-export interface ForgotPasswordChange_forgotPasswordChange {
+export interface ForgotPasswordChangeMutation_forgotPasswordChange {
   path: string;
   message: string;
 }
 
-export interface ForgotPasswordChange {
-  forgotPasswordChange: ForgotPasswordChange_forgotPasswordChange[] | null;
+export interface ForgotPasswordChangeMutation {
+  forgotPasswordChange: ForgotPasswordChangeMutation_forgotPasswordChange[] | null;
 }
 
-export interface ForgotPasswordChangeVariables {
+export interface ForgotPasswordChangeMutationVariables {
   newPassword: string;
   key: string;
 }

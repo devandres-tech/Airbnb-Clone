@@ -2,6 +2,7 @@ import * as React from 'react';
 import { Form, Icon, Button } from 'antd';
 import { withFormik, FormikProps, Field, Form as FForm } from 'formik';
 import { NormalizedErrorMap } from '@abb/controller';
+import { changePasswordSchema } from '@abb/common';
 
 import { InputField } from '../../shared/InputField';
 
@@ -40,6 +41,7 @@ class ForgotPasswordComponent extends React.PureComponent<FormikProps<FormValues
 }
 
 export const ChangePasswordView = withFormik<Props, FormValues>({
+  validationSchema: changePasswordSchema,
   mapPropsToValues: () => ({ newPassword: '' }),
   handleSubmit: async (values, { props, setErrors }) => {
     const errors = await props.submit(values);
