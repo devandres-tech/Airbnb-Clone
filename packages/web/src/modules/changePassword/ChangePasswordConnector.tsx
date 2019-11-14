@@ -10,7 +10,7 @@ export default class ChangePasswordConnector extends Component<RouteComponentPro
     console.log('key ', key);
     return (
       <ChangePasswordController>
-        {({ submit }) => <ChangePasswordView key={key} submit={this.submit} />}
+        {({ submit }) => <ChangePasswordView key={key} submit={submit} />}
       </ChangePasswordController>
     )
   }
