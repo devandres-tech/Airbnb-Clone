@@ -1,12 +1,10 @@
 import React, { Component } from 'react'
+import { RouteComponentProps } from 'react-router-dom';
 
-export default class TextPage extends Component {
+export default class TextPage extends Component<RouteComponentProps<{}>> {
   render() {
-    console.log('props ', this.props);
-    return (
-      <div>
-        <h1>hello</h1>
-      </div>
-    )
+    const { location: { state } } = this.props;
+
+    return <h2>{state && state.message ? state.message : 'hello'}</h2>;
   }
 }
