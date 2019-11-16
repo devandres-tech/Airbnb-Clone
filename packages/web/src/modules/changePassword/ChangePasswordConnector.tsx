@@ -13,7 +13,7 @@ export default class ChangePasswordConnector extends Component<RouteComponentPro
     console.log('key ', key);
     return (
       <ChangePasswordController>
-        {({ submit }) => <ChangePasswordView onFinish={this.onFinish} key={key} submit={submit} />}
+        {({ submit }) => <ChangePasswordView onFinish={this.onFinish} token={key} submit={submit} />}
       </ChangePasswordController>
     )
   }
