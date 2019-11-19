@@ -5,7 +5,7 @@ import { ResolverMap } from "../../../types/graphql-utils";
 import { createForgotPasswordLink } from "../../../utils/createForgotPasswordLink";
 import { User } from "../../../entity/User";
 import { expiredKeyError } from "./errorMessages";
-import { forgotPasswordPrefix, userSessionIdPrefix } from "../../../constants";
+import { forgotPasswordPrefix } from "../../../constants";
 import { formatYupError } from "../../../utils/formatYupError";
 import { sendEmail } from '../../../utils/sendEmail';
 
@@ -37,7 +37,7 @@ export const resolvers: ResolverMap = {
     forgotPasswordChange: async (
       _,
       { newPassword, key }: GQL.IForgotPasswordChangeOnMutationArguments,
-      { redis, session, req }
+      { redis }
     ) => {
       const redisKey = `${forgotPasswordPrefix}${key}`;
 
@@ -70,12 +70,6 @@ export const resolvers: ResolverMap = {
       const deleteKeyPromise = redis.del(redisKey);
 
       await Promise.all([updatePromise, deleteKeyPromise]);
-
-      // return null;
-      session.userId = userId;
-      if (req.sessionID) {
-        await redis.lpush(`${userSessionIdPrefix}${userId}`, req.sessionID);
-      }
 
       return null;
     }
