@@ -70,7 +70,8 @@ export const startServer = async () => {
   if (process.env.NODE_ENV === "test") {
     await createTestConn(true);
   } else {
-    await createTypeormConn();
+    const connection = await createTypeormConn();
+    await connection.runMigrations();
   }
 
   const port = process.env.PORT || 4000;

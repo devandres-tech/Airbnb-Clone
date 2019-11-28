@@ -3,7 +3,10 @@ import {
   Column,
   BaseEntity,
   PrimaryGeneratedColumn,
+  ManyToOne,
 } from "typeorm";
+import { User } from './User';
+
 
 @Entity("listing")
 export class Listing extends BaseEntity {
@@ -28,4 +31,7 @@ export class Listing extends BaseEntity {
   @Column("double precision") longitude: number;
 
   @Column("text", { array: true }) amenities: string[];
+
+  @ManyToOne(() => User, user => user.listings)
+  user: User;
 }
