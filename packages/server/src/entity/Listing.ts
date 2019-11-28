@@ -8,7 +8,7 @@ import {
 import { User } from './User';
 
 
-@Entity("listing")
+@Entity("listings")
 export class Listing extends BaseEntity {
   @PrimaryGeneratedColumn("uuid") id: string;
 
