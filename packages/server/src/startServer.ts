@@ -5,7 +5,7 @@ import * as session from "express-session";
 import * as connectRedis from "connect-redis";
 import * as RateLimit from "express-rate-limit";
 import * as RateLimitRedisStore from "rate-limit-redis";
-import { applyMiddleware, middleware } from 'graphql-middleware';
+import { applyMiddleware } from 'graphql-middleware';
 
 import { middleware } from './middleware';
 import { redis } from "./redis";
@@ -24,6 +24,7 @@ export const startServer = async () => {
   }
 
   const schema = genSchema() as any;
+  // authentication middleware
   applyMiddleware(schema, middleware);
 
   const server = new GraphQLServer({
