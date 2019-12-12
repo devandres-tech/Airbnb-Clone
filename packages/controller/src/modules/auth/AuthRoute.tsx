@@ -3,11 +3,15 @@ import { RouteProps } from 'react-router';
 import { graphql } from 'react-apollo';
 import gql from 'graphql-tag';
 
-const MeQuery = gql`
-
+const meQuery = gql`
+  query MeQuery {
+    me {
+      email
+    }
+  }
 `
 
-export default class AuthRoute extends Component<RouteProps> {
+class C extends Component<RouteProps> {
   render() {
     return (
       <div>
@@ -16,3 +20,5 @@ export default class AuthRoute extends Component<RouteProps> {
     )
   }
 }
+
+export const AuthRoute = graphql(meQuery)(C);
