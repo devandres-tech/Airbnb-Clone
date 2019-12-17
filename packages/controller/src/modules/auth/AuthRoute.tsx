@@ -20,7 +20,7 @@ class C extends Component<ChildProps<Props, MeQuery>> {
   renderRoute = (routeProps: RouteComponentProps<{}>) => {
     const { data, component } = this.props;
 
-    if (!data || !data.loading) {
+    if (!data || data.loading) {
       // loading screen
       return null;
     }
