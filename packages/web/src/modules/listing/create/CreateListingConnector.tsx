@@ -3,16 +3,9 @@ import { Form, Icon, Button } from 'antd';
 import { withFormik, FormikProps, Field, Form as FForm, Formik } from 'formik'
 import { InputField } from '../../shared/InputField';
 import { Link } from 'react-router-dom';
-
-// name: String!
-// category: String!
-// description: String!
-// price: Int!
-// beds: Int!
-// guests: Int!
-// latitude: Float!
-// longitude: Float!
-// amenities: [String!]!
+import { Page1 } from './view/Page1';
+import { Page2 } from './view/Page2';
+import { Page3 } from './view/Page3';
 
 interface FormValues {
   name: string;
@@ -35,10 +28,16 @@ const InitialValues = {
   guests: 0,
   latitude: 0,
   longitude: 0,
-  amenities: 0
+  amenities: []
 }
 
+const pages = [<Page1 />, <Page2 />, <Page3 />];
+
 export default class CreateListingConnector extends Component {
+  state = {
+    page: 0
+  }
+
   submit = (values: any) => {
     console.log('values: ', values);
   }
@@ -49,12 +48,6 @@ export default class CreateListingConnector extends Component {
         {
           () => (
             <FForm className="login-form">
-              <Field
-                name="email"
-                prefix={<Icon type="user" style={{ color: 'rgba(0,0,0,.25)' }} />}
-                placeholder="email"
-                component={InputField}
-              />
               <Form.Item>
                 <Button
                   type="primary"
