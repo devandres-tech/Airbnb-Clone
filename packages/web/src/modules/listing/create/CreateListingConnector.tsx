@@ -14,10 +14,38 @@ import { Link } from 'react-router-dom';
 // longitude: Float!
 // amenities: [String!]!
 
+interface FormValues {
+  name: string;
+  category: string;
+  description: string;
+  price: number;
+  beds: string;
+  guests: string;
+  latitude: string;
+  longitude: string;
+  amenities: string[];
+}
+
+const InitialValues = {
+  name: "",
+  category: "",
+  description: "",
+  price: 0,
+  beds: 0,
+  guests: 0,
+  latitude: 0,
+  longitude: 0,
+  amenities: 0
+}
+
 export default class CreateListingConnector extends Component {
+  submit = (values: any) => {
+    console.log('values: ', values);
+  }
+
   render() {
     return (
-      <Formik>
+      <Formik initialValues={InitialValues} onSubmit={this.submit}>
         {
           () => (
             <FForm className="login-form">
@@ -27,20 +55,17 @@ export default class CreateListingConnector extends Component {
                 placeholder="email"
                 component={InputField}
               />
-              <Field
-                name="password"
-                type="password"
-                prefix={<Icon type="lock" style={{ color: 'rgba(0,0,0,.25)' }} />}
-                placeholder="password"
-                component={InputField}
-              />
+              <Form.Item>
+                <Button
+                  type="primary"
+                  htmlType="submit"
+                >
+                  Create Listing
+                </Button>
               </Form.Item>
-            <Form.Item>
-              <Link to="/register">register</Link>
-            </Form.Item>
             </FForm>
-    )
-  }
+          )
+        }
       </Formik>
     )
   }

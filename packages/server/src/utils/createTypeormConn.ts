@@ -11,4 +11,5 @@ export const createTypeormConn = async () => {
       entities: [User, Listing],
       name: "default"
     } as any)
-    : createConnection({ ...connectionOptions, name: "default" });
+    : createConnection({ ...connectionOptions, name: "default" })
+};
