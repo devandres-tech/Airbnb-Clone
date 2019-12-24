@@ -7,6 +7,7 @@ export const Page2 = () => (
   <>
     <Field
       label="Price"
+      useNumberComponent={true}
       name="price"
       placeholder="Price"
       component={InputField}
