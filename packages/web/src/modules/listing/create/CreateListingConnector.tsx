@@ -48,12 +48,14 @@ export default class CreateListingConnector extends Component<{}, State> {
                 }}>
                   {
                     this.state.page === pages.length - 1 ? (
-                      <Button
-                        type="primary"
-                        htmlType="submit"
-                      >
-                        Create Listing
-                      </Button>
+                      <div>
+                        <Button
+                          type="primary"
+                          htmlType="submit"
+                        >
+                          Create Listing
+                        </Button>
+                      </div>
                     ) : (
                         <Button type="primary" onClick={this.nextPage}>
                           Next Page
