@@ -15,12 +15,14 @@ export const Page2 = () => (
     <Field
       label="Beds"
       name="beds"
+      useNumberComponent={true}
       placeholder="Beds"
       component={InputField}
     />
     <Field
       label="Guests"
       name="guests"
+      useNumberComponent={true}
       placeholder="Guests"
       component={InputField}
     />
