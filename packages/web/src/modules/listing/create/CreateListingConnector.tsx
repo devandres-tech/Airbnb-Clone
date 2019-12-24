@@ -42,20 +42,26 @@ export default class CreateListingConnector extends Component<{}, State> {
             <FForm className="login-form">
               {pages[this.state.page]}
               <Form.Item>
-                {
-                  this.state.page === pages.length - 1 ? (
-                    <Button
-                      type="primary"
-                      htmlType="submit"
-                    >
-                      Create Listing
-                    </Button>
-                  ) : (
-                      <Button type="primary" onClick={this.nextPage}>
-                        Next Page
+                <div style={{
+                  display: 'flex',
+                  justifyContent: 'flex-end'
+                }}>
+                  {
+                    this.state.page === pages.length - 1 ? (
+                      <Button
+                        type="primary"
+                        htmlType="submit"
+                      >
+                        Create Listing
                       </Button>
-                    )
-                }
+                    ) : (
+                        <Button type="primary" onClick={this.nextPage}>
+                          Next Page
+                        </Button>
+                      )
+
+                  }
+                </div>
               </Form.Item>
             </FForm>
           )
