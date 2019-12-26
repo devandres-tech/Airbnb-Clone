@@ -4,10 +4,10 @@ import { AuthRoute } from '@abb/controller';
 
 import { RegisterConnector } from "../modules/register/RegisterConnector";
 import { LoginConnector } from '../modules/login/LoginConnector';
-import ForgotPasswordConnector from '../modules/forgotPassword/ForgotPasswordConnector';
+import { ForgotPasswordConnector } from '../modules/forgotPassword/ForgotPasswordConnector';
 import ChangePasswordConnector from '../modules/changePassword/ChangePasswordConnector';
 import TextPage from '../modules/TextPage/index';
-import CreateListingConnector from '../modules/listing/create/CreateListingConnector';
+import { CreateListingConnector } from '../modules/listing/create/CreateListingConnector';
 
 export const Routes = () => (
   <BrowserRouter>

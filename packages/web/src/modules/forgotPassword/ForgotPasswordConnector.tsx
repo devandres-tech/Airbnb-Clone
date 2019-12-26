@@ -4,7 +4,7 @@ import { ForgotPasswordView } from './view/ForgotPasswordView';
 import { ForgotPasswordController } from '@abb/controller';
 import { RouteComponentProps } from 'react-router-dom';
 
-export default class ForgotPasswordConnector extends Component<RouteComponentProps<{}>> {
+export class ForgotPasswordConnector extends React.PureComponent<RouteComponentProps<{}>> {
   onFinish = () => {
     this.props.history.push("/m/reset-email", { message: "check your email to reset your password" });
   }

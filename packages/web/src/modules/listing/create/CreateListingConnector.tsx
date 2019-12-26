@@ -1,9 +1,10 @@
 import React, { Component } from 'react';
-import { Form, Icon, Button } from 'antd';
-import { withFormik, FormikProps, Field, Form as FForm, Formik } from 'formik'
+import { Form, Button } from 'antd';
+import { Form as FForm, Formik } from 'formik'
 import { Page1 } from './view/Page1';
 import { Page2 } from './view/Page2';
 import { Page3 } from './view/Page3';
+import { withCreateListing, NewPropsCreateListing } from '@abb/controller';
 
 interface State {
   page: number
@@ -21,15 +22,27 @@ const InitialValues = {
   amenities: []
 }
 
+interface FormValues {
+  name: string;
+  category: string;
+  description: string;
+  price: number;
+  beds: number;
+  guests: number;
+  latitude: number;
+  longitude: number;
+  amenities: string[];
+}
+
 const pages = [<Page1 />, <Page2 />, <Page3 />];
 
-export default class CreateListingConnector extends Component<{}, State> {
+class C extends Component<{} & NewPropsCreateListing, State> {
   state = {
     page: 0
   }
 
-  submit = (values: any) => {
-    console.log('values: ', values);
+  submit = (values: FormValues) => {
+    this.props.createListing(values);
   }
 
   nextPage = () => this.setState(state => ({ page: state.page + 1 }))
@@ -72,3 +85,5 @@ export default class CreateListingConnector extends Component<{}, State> {
     )
   }
 }
+
+export const CreateListingConnector = withCreateListing(C)

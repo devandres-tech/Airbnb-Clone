@@ -36,12 +36,13 @@ export interface NewPropsCreateListing {
 
 export const withCreateListing = graphql<any, CreateListingMutation, CreateListingMutationVariables, NewPropsCreateListing>(createListingMutation, {
   props: ({ mutate }) => ({
-    createListing: (variables) => {
+    createListing: async (variables) => {
       if (!mutate) {
         return;
       }
 
-      mutate({ variables })
+      const res = await mutate({ variables })
+      console.log('Resonse is ', res);
     }
   })
 });
